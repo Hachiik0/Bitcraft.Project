@@ -1,416 +1,456 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-body {
-    color: #ededed;
+body{
+    color:#ededed;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0,255,255,0.15), transparent 40%),
+        linear-gradient(180deg,#0F172A,#020617);
+    overflow-x:hidden;
 }
 
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
+/* ================= HEADER & SIDEBAR (ORIGINAL) ================= */
+.header{
+    position:fixed;
+    top:20px;
+    left:30px;
+    z-index:100;
 }
 
-#menu-icon {
-    display: none;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
-    transition: color 0.3s ease;
+#menu-icon{
+    display:none;
+    font-size:26px;
+    color:#0ef;
+    cursor:pointer;
 }
 
-#menu-icon.open,
-#close-icon.open {
+.sidebar{
+    position:fixed;
+    left:30px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:20px 10px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(0,255,255,0.3);
+    backdrop-filter:blur(10px);
+    border-radius:60px;
+    box-shadow:0 0 20px rgba(0,255,255,0.2);
+}
+
+.sidebar .nav-item{
+    width:60px;
+    height:60px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    color:#0ef;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.sidebar .nav-item i{ font-size:28px; margin-bottom:4px; }
+.sidebar .nav-item span{ font-size:13px; }
+.sidebar .nav-item:hover{ color:#fff; }
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:45px;
+    height:45px;
+    font-size:22px;
+    color:#0ef;
+    text-decoration:none;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.sidebar a:hover, .sidebar a.active{
+    background:cyan;
+    color:#020617;
+    box-shadow:0 0 15px cyan;
+}
+
+/* ================= HOME SECTION (ORIGINAL) ================= */
+.home{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:100vh;
+    padding:70px 10% 0 150px;
+    gap:40px;
+}
+
+.home-content{ max-width:600px; }
+.home-content h3{ font-size:28px; font-weight:700; }
+.home-content h3 span{ color:#0ef; }
+.home-content h1{ font-size:56px; font-weight:700; }
+.home-content p{ font-size:18px; margin-top:10px; line-height:1.6; }
+
+.home-img img{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid rgba(0,255,255,0.4);
+    box-shadow:0 0 30px rgba(0,255,255,0.5);
+}
+
+.home-sci{ margin-top:20px; }
+.home-sci a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:40px;
+    height:40px;
+    border:2px solid #0ef;
+    border-radius:50%;
+    font-size:20px;
+    color:#0ef;
+    margin-right:15px;
+    transition:.5s;
+}
+.home-sci a:hover{ background:cyan; color:#020617; box-shadow:0 0 20px cyan; }
+
+.btn-box{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 28px;
+    background:#2f3c3d;
+    border-radius:40px;
+    font-size:16px;
+    color:cyan;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+    transition:.3s;
+}
+.btn-box:hover{ background:cyan; color:#081b29; box-shadow: 0 0 50px cyan; }
+
+/* ================= SKILLS SECTION (FIXED LAYOUT & GLASS) ================= */
+section.skills {
+    padding: 100px 10% 100px 180px !important; 
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(0,255,255,0.1), transparent 40%),
+        linear-gradient(180deg,#020617,#0F172A);
+}
+
+section.skills .section-title {
+    text-align: center;
+    font-size: 42px;
+    color: #0ef;
+    margin-bottom: 50px;
+}
+
+section.skills .skills-category h3 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-top: 40px;
     color: cyan;
 }
 
-#close-icon {
-    display: none;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    transition: color 0.3s ease;
+section.skills .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
 }
 
-/* show close icon when navbar is shown */
-.navbar.active #close-icon {
+/* Glassmorphism Effect */
+section.skills .skill-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+section.skills .skill-card i {
+    font-size: 45px;
+    color: #0ef;
+    margin-bottom: 15px;
     display: block;
 }
 
-.logo {
-    position: relative;
-    font-size: 25px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    cursor: default;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-
+section.skills .skill-card h4 { font-size: 20px; color: #fff; margin-bottom: 12px; }
+section.skills .skill-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.navbar a {
-    display: inline-block;
-    font-size: 25px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: .3s;
-    opacity: 0;
-    animation: slideTop .5s ease forwards;
-    animation-delay: calc(.2s * var(--i));
+section.skills .skill-card:hover {
+    transform: translateY(-10px);
+    border-color: #0ef;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
-.navbar a:hover {
-    color: #0ef
-}
-
-.home {
-    position: relative;
-    width: 100%;
-    justify-content: space-between;
-    height: 100vh;
-    background: url(757a85c713542ba1524a4c0b16539ce6.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    padding: 70px 10px 0;
-}
-
-.home-content {
-    max-width: 600px;
-    position: relative;
-}
-
-img {
-    width: 220px;
-    height: 220px;
-    border-radius: 80%;
-    object-fit: cover;
-    position: absolute;
-    /* Menetapkan posisi absolut */
-    top: 50%;
-    /* Menggeser ke tengah vertikal */
-    right: 200px;
-    /* Meletakkan di sisi kanan */
-    transform: translateY(-50%);
-    /* Menyesuaikan posisi secara vertikal */
-}
-
-.home-content h3 {
-    font-size: 32px;
-    font-weight: 700;
-    opacity: 0;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: .7s;
-
-}
-
-.home-content h3:nth-of-type(2) {
-    margin-bottom: 30px;
-    animation: slideTop 1s ease forwards;
-    animation-delay: .7s;
-}
-
-.home-content h3 span {
+section.skills .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+section.skills .skill-tags span {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 25px;
     color: #0ef;
+    font-size: 14px;
+    transition: 0.3s;
 }
-.home-content h1 {
-    font-size: 56px;
-    font-weight: 700;
-    margin: -3px 0;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-    animation-delay: 1s;
+section.skills .skill-tags span:hover { background: #0ef; color: #020617; }
 
-}
-
-.home-content p {
-    font-size: 20px;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: 1s;
-
-}
-
-.home-sci a {
-    display: inline-flex;
+.skill-logos {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Kotak Logo di Desktop */
+.logo-item {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 2px solid #0ef;
-    border-radius: 50%;
+    justify-content: center;
+    width: 110px; 
+    padding: 20px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    cursor: pointer; /* Mengubah kursor jadi tangan saat diarahkan */
+    transition: all 0.4s ease; /* Membuat transisi jadi halus */
+}
+
+/* Ukuran Gambar Logo di Desktop */
+.logo-item img {
+    width: 50px; 
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.logo-item span {
+    font-size: 12px;
+    color: #0ef;
+    text-align: center;
+}
+
+.logo-item:hover {
+    /* 1. Efek angkat sedikit ke atas */
+    transform: translateY(-8px) scale(1.05); 
+    
+    /* 2. Efek cahaya (Glow) di sekeliling kotak */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4); 
+    
+    /* 3. Warna border berubah jadi Cyan menyala */
+    border-color: #0ef; 
+    
+    /* 4. Background jadi sedikit lebih terang */
+    background: rgba(0, 255, 255, 0.1); 
+}
+
+.logo-item:hover img {
+    /* Memberikan efek cahaya pada gambar logonya */
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+    transition: 0.3s;
+}
+
+/* EFEK PADA TEKS DI BAWAH LOGO */
+.logo-item:hover span {
+    color: #fff; /* Teks berubah jadi putih agar lebih terlihat */
+    text-shadow: 0 0 5px #0ef;
+    transition: 0.3s;
+}
+
+/* =================Project section ================= */
+section.projects {
+    min-height: 100vh;
+    padding: 100px 10% 100px 180px !important; /* Jarak dari sidebar dikunci */
+    background: radial-gradient(circle at 50% 50%, rgba(0,255,255,0.05), transparent 50%);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+    align-items: stretch;
+}
+
+/* Card Project Style */
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden; /* Agar gambar tidak keluar dari radius */
+    transition: 0.4s ease;
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h4 {
     font-size: 20px;
-    color: rgb(7, 246, 242);
-    text-decoration: none;
-    transition: .5s ease;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: calc(.2s * var(--i));
-
-    margin: 30px 15px 30px 0;
+    color: #0ef;
+    margin-bottom: 10px;
 }
 
-.home-sci a:hover {
-    background: cyan;
-    color: cyan;
-    box-shadow: 0 0 20px cyan;
+.project-info p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ededed;
+    margin-bottom: 20px;
 }
 
-.btn-box {
-    display: inline-block;
-    padding: 12px 28px;
-    background: rgb(47, 60, 61);
-    border-radius: 40px;
-    font-size: 16px;
-    color: cyan;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 600;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
-    box-shadow: 0 0 5px #0ef,
-        0 0 25px #0ef
+.project-links {
+    display: flex;
+    gap: 15px;
 }
 
-.btn-box:hover {
-  box-shadow: 
-    0 0 5px cyan,
-    0 0 25px cyan,
-    0 0 50px cyan,
-    0 0 100px cyan,
-    0 0 200px cyan;
-
-  background: cyan;
-  color: #081b29;
+.project-links a {
+    font-size: 22px;
+    color: #0ef;
+    transition: 0.3s;
 }
 
-@keyframes slideRight {
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
+/* HOVER EFFECTS */
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: #0ef;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
-@keyframes slideLeft {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
+.project-card:hover .project-img img {
+    transform: scale(1.1);
 }
 
-
-@keyframes slideTop {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+.project-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #0ef;
 }
 
-@keyframes slideBottom {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
+/* ================= RESPONSIVE================= */
 
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+@media (max-width:992px){
+    .home{ padding-left:120px; }
+    .home-content h1{ font-size:42px; }
+    .home-img img{ width:200px; height:200px; }
+    section.skills { padding-left: 140px !important; }
 }
 
-/* Media Queries untuk Mobile */
+@media (max-width:768px){
+    /* Sidebar Mobile Original */
+    .sidebar{
+        top:20px;
+        left:50%;
+        transform:translateX(-50%);
+        flex-direction:row;
+        gap:12px;
+        padding:8px 16px;
+        border-radius:50px;
+    }
+    .sidebar a{ width:36px; height:36px; font-size:18px; }
 
-/* Tablet dan Perangkat Kecil (768px keatas) */
-@media (max-width: 768px) {
-    .header {
-        padding: 15px 5%;
+    .header{
+        width:100%;
+        left:0;
+        top:0;
+        padding:15px 20px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
     }
 
-    .logo {
-        font-size: 20px;
+.skill-logos {
+        justify-content: center; /* Logo ke tengah di HP */
+        gap: 15px;
     }
 
-    #menu-icon {
-        display: block;
+    .logo-item {
+        width: 85px; /* Kotak mengecil di HP */
+        padding: 15px 5px;
     }
 
-    .navbar {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 60%;
-        height: 100vh;
-        background: rgba(8, 27, 41, 0.95);
-        /* always flex but off-screen by default */
-        display: flex;
-        transform: translateX(100%);
-        transition: transform 0.3s ease, background 0.3s ease;
-        flex-direction: column;
-        padding: 60px 20px;
-        text-align: center;
-        box-shadow: -4px 0 8px rgba(0,0,0,0.3);
-        overflow-y: auto;
-        z-index: 99;
-    }
-
-    .navbar.active {
-        transform: translateX(0);
-        background: cyan ;
-    }
-
-    .navbar a {
-        display: block;
-        margin: 15px 0;
-        font-size: 18px;
-    }
-
-    .home {
-        padding: 70px 20px 0;
-        background-position: center right;
-    }
-
-    .home-content {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    .home-content h3 {
-        font-size: 22px;
-    }
-
-    .home-content h1 {
-        font-size: 36px;
-    }
-
-    .home-content p {
-        font-size: 16px;
-        line-height: 1.5;
-        max-width: 100%;
-        margin-right: 0;
-    }
-
-    img {
-        width: 180px;
-        height: 180px;
-        right: 20px;
-        top: 55%;
-    }
-
-    .home-sci a {
-        width: 35px;
+    .logo-item img {
+        width: 35px; /* Gambar logo mengecil di HP */
         height: 35px;
-        font-size: 18px;
-        margin: 20px 10px 20px 0;
     }
 
-    .btn-box {
-        padding: 10px 25px;
-        font-size: 14px;
+    .logo-item span {
+        font-size: 10px;
+    }
+
+    section.projects {
+        padding: 120px 20px 40px 20px !important;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }       
+
+    /* Home Mobile Original */
+    .home{
+        padding:120px 20px 40px 20px;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        gap:25px;
+    }
+    .home-content{ max-width:120%; }
+    .home-content h3{ font-size:20px; margin-bottom:5px; }
+    .home-content h1{ white-space: nowrap; font-size:34px; margin-bottom:8px; }
+    .home-content p{ font-size:15px; line-height:1.7; margin-top:12px; }
+    .home-img img{ width:140px; height:140px; border-radius:50%; }
+    .home-sci{ margin-top:18px; }
+    .home-sci a{ width:36px; height:36px; font-size:18px; margin-right:10px; }
+    .btn-box{ margin-top:18px; padding:10px 20px; font-size:14px; }
+
+    /* Skills Mobile Fixed */
+    section.skills { padding: 120px 20px 40px 20px !important; }
+    section.skills .skills-grid { grid-template-columns: 1fr; }
+    section.skills .section-title { font-size: 32px; }
+}
+
+@media (max-width:480px){
+    .home-content h1{ font-size:28px; }
+    .home-content h3{ font-size:18px; }
+    .home-content p{ font-size:13px; }
+
+.logo-item {
+        width: 75px;
+        gap: 10px;
     }
 }
 
-/* Mobile Kecil (480px keatas) */
-@media (max-width: 480px) {
-    .header {
-        padding: 12px 3%;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    #menu-icon {
-        font-size: 24px;
-    }
-
-    .navbar a {
-        font-size: 16px;
-        margin: 12px 0;
-    }
-
-    .home {
-        height: 100vh;
-        padding: 60px 15px 0;
-        background-size: cover;
-    }
-
-    .home-content h3 {
-        font-size: 18px;
-    }
-
-    .home-content h1 {
-        font-size: 28px;
-    }
-
-    .home-content p {
-        font-size: 14px;
-        line-height: 1.4;
-        margin-right: 20px;
-        max-width: 100%;
-        /* allow wrapping per paragraph */
-    }
-
-    img {
-        width: 150px;
-        height: 150px;
-        right: 10px;
-        top: 50%;
-    }
-
-    .home-sci {
-        margin-top: 20px;
-    }
-
-    .home-sci a {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-        margin: 15px 8px 15px 0;
-    }
-
-    .btn-box {
-        padding: 10px 20px;
-        font-size: 13px;
-        margin-top: 20px;
-    }
-
-    .home-imgHover {
-        width: 342px;
-    }
-}
