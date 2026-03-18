@@ -148,8 +148,13 @@ section.skills {
 section.skills .section-title {
     text-align: center;
     font-size: 42px;
-    color: #0ef;
+    color: rgb(255, 255, 255);
     margin-bottom: 50px;
+}
+
+section.skills .section-title span {
+    color: #0ef;      /* Warna Cyan */
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Efek cahaya neon */
 }
 
 section.skills .skills-category h3 {
@@ -281,8 +286,22 @@ section.skills .skill-tags span:hover { background: #0ef; color: #020617; }
 /* =================Project section ================= */
 section.projects {
     min-height: 100vh;
-    padding: 100px 10% 100px 180px !important; /* Jarak dari sidebar dikunci */
+    padding: 100px 10% 100px 180px !important; 
     background: radial-gradient(circle at 50% 50%, rgba(0,255,255,0.05), transparent 50%);
+}
+
+section.projects .section-title {
+    text-align: center;
+    width: 100%;
+    font-size: 52px; 
+    color: #fff;      
+    margin-bottom: 50px;
+}
+
+
+section.projects .section-title span {
+    color: #0ef;      
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6); 
 }
 
 .projects-grid {
@@ -299,7 +318,7 @@ section.projects {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    overflow: hidden; /* Agar gambar tidak keluar dari radius */
+    overflow: hidden; 
     transition: 0.4s ease;
 }
 
@@ -393,17 +412,17 @@ section.projects {
     }
 
 .skill-logos {
-        justify-content: center; /* Logo ke tengah di HP */
+        justify-content: center; 
         gap: 15px;
     }
 
     .logo-item {
-        width: 85px; /* Kotak mengecil di HP */
+        width: 85px; 
         padding: 15px 5px;
     }
 
     .logo-item img {
-        width: 35px; /* Gambar logo mengecil di HP */
+        width: 35px; 
         height: 35px;
     }
 
