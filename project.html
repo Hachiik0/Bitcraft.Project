@@ -29,11 +29,9 @@
     <section class="projects">
         <h2 class="section-title">My <span>Portfolio</span></h2>
 
-        <class class="projects-grid">
+        <div class="projects-grid">
             <div class="project-card">
-                <div class="project-img">
-                    <img src="asset/kmo.png" alt="Project 1">
-                </div>
+                <div class="project-img"><img src="asset/kmo.png" alt="Project 1"></div>
                 <div class="project-info">
                     <h4>E-Commerce Website</h4>
                     <p>Website belanja online responsif, katalog, dan tombol pemesanan yang terhubung ke whatsapp.</p>
@@ -45,9 +43,7 @@
             </div>
 
             <div class="project-card">
-                <div class="project-img">
-                    <img src="asset/cuaca.png" alt="Project 2">
-                </div>
+                <div class="project-img"><img src="asset/cuaca.png" alt="Project 2"></div>
                 <div class="project-info">
                     <h4>SkyWatcher</h4>
                     <p>Aplikasi cuaca menggunakan Rapid API yang dapat menampilkan informasi cuaca, angin, dan suhu secara real-time.</p>
@@ -59,57 +55,71 @@
             </div>
 
             <div class="project-card">
-                <div class="project-img">
-                    <img src="asset/dpsi.png" alt="Project 3">
-                </div>
+                <div class="project-img"><img src="asset/dpsi.png" alt="Project 3"></div>
                 <div class="project-info">
                     <h4>Manajemen konten digital</h4>
-                    <p>website manajemen konten digital merupakan website yang membantu organisasi kemasyarakatan mengelola produksi konten kampanye seperti flyer, video, dan meme dengan melibatkan partisipasi publik.</p>
+                    <p>website manajemen konten digital membantu organisasi mengelola produksi konten kampanye.</p>
                     <div class="project-links">
                         <a href="https://github.com/Hachiik0/Manajemen-Konten-Digital"><i class='bx bxl-github'></i></a>
                     </div>
                 </div>
             </div>
-    </class>
 
-    <div class="projects-grid">
-    <div class="project-card">
-        <div class="project-img">
-            <img src="asset/dbh.png" alt="Project 4">
-        </div>
-        <div class="project-info">
-            <h4>Sistem Deteksi Barang Hilang</h4>
-            <p>Merupakan sistem berbasis kamera (open cv) yang mampu mendeteksi keberadaan 
-barang dan memberikan notifikasi otomatis ketika barang hilang atau ada orang yang mendekati barang 
-tanpa izin. </p>
-            <div class="project-links">
-                <a href="https://github.com/Hachiik0/Sistem-Deteksi-Barang-Hilang"><i class='bx bxl-github'></i></a>
+            <div class="project-card">
+                <div class="project-img"><img src="asset/dbh.png" alt="Project 4"></div>
+                <div class="project-info">
+                    <h4>Sistem Deteksi Barang Hilang</h4>
+                    <p>Sistem berbasis kamera (OpenCV) mendeteksi keberadaan barang dan memberikan notifikasi otomatis.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Hachiik0/Sistem-Deteksi-Barang-Hilang"><i class='bx bxl-github'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img"><img src="asset/qa.png" alt="Project 5"></div>
+                <div class="project-info">
+                    <h4>Usability Testing</h4>
+                    <p>Melakukan evaluasi 7 skenario tugas dengan partisipan untuk perbaikan UI/UX berbasis data.</p>
+                    <div class="project-links">
+                        <a href="https://drive.google.com/drive/folders/1MDShLE2Ljhun_-KF52oRhHBnYQ0P-Rgm?usp=sharing"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="project-card">
-        <div class="project-img">
-            <img src="asset/qa.png" alt="Project 5">
-        </div>
-        <div class="project-info">
-            <h4>Usability Testing</h4>
-            <p>Melakukan usability testing dengan 3 partisipan untuk mengevaluasi 7 skenario
-tugas. Menganalisis success rate, waktu, dan error, serta mengidentifikasi masalah pada
-navigasi fitur yang menyebabkan penurunan performa pengguna. Memberikan
-rekomendasi perbaikan UI/UX berbasis data.</p>
-            <div class="project-links">
-                <a href="https://drive.google.com/drive/folders/1MDShLE2Ljhun_-KF52oRhHBnYQ0P-Rgm?usp=sharing"><i class='bx bx-link-external'></i></a>
+        <h2 class="section-title" style="margin-top: 100px;"><span>Certificates</span></h2>
+
+        <div class="certificate-grid">
+            <div class="cert-card">
+                <div class="cert-img">
+                    <img src="asset/Cyber_page-0001.jpg" alt="Sertifikat 1">
+                </div>
+                <div class="cert-info">
+                    <h4>Intermediate Cybersecurity</h4>
+                    <p>Digital Talent Scholarship - 2025</p>
+                    <a href="javascript:void(0)" class="view-cert">View More</a>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-img">
+                    <img src="asset/sertif himasi_page-0001.jpg" alt="Sertifikat 2">
+                </div>
+                <div class="cert-info">
+                    <h4>Himpunan Mahasiswa Sistem Informasi</h4>
+                    <p>Himasi - 2025</p>
+                    <a href="javascript:void(0)" class="view-cert">View More</a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-            
-            
-        
-
-        
     </section>
+
+    <div id="certModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImg">
+        <div id="caption"></div>
+    </div>
 
     <script src="main.js"></script>
 </body>
